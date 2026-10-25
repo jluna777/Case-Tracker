@@ -1,0 +1,30 @@
+:root {
+  --bg: #F8FAFC;           --surface: #FFFFFF;
+  --border: #E2E8F0;       --border-subtle: #F1F5F9;
+  --text: #0F172A;         --text-2: #334155;     --muted: #64748B;
+  --accent: #4F46E5;       --accent-hover: #4338CA; --accent-soft: #EEF2FF; --accent-ring: #E0E7FF;
+  --danger: #DC2626;       --danger-text: #B91C1C;  --danger-soft: #FEE2E2; --danger-border: #FECACA;
+  --overdue-row: #FFF5F5;
+  --warn-text: #B45309;    --warn-soft: #FEF3C7;
+  --success-text: #047857; --success-soft: #D1FAE5;
+  --radius-card: 14px;     --radius-control: 10px;  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(15,23,42,.04), 0 6px 20px rgba(15,23,42,.05);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 32px 48px;
+  box-sizing: border-box;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }

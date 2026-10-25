@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cases</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F8FAFC}
+a{color:#4F46E5}a:hover{color:#3730A3}
+.kpi{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 1px 2px rgba(15,23,42,0.04),0 6px 20px rgba(15,23,42,0.05)}
+.ico{width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.chip{font:inherit;font-size:13px;font-weight:500;color:#334155;min-height:40px;padding:0 14px;border:1px solid #E2E8F0;border-radius:999px;background:#FFFFFF}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;font:inherit;font-size:14px;font-weight:600;text-decoration:none;background:#4F46E5;color:#FFFFFF;border:0;cursor:pointer}
+.btn:hover{background:#4338CA;color:#FFFFFF}
+.pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;line-height:18px;white-space:nowrap}
+.st-new{background:#EEF2FF;color:#4338CA}.st-prog{background:#E0F2FE;color:#075985}.st-wait{background:#FEF3C7;color:#92400E}
+.pr{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#334155;white-space:nowrap}
+.pd{width:8px;height:8px;border-radius:50%}
+.av{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:12px;font-weight:600;color:#FFFFFF;flex:none}
+.av-a{background:#6366F1}.av-j{background:#0D9488}.av-s{background:#DB2777}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+table.t th{text-align:left;font-size:12px;font-weight:500;color:#64748B;padding:12px 16px;border-bottom:1px solid #E2E8F0;white-space:nowrap}
+table.t td{padding:14px 16px;border-bottom:1px solid #F1F5F9;vertical-align:middle;white-space:nowrap;color:#0F172A}
+table.t td.c{white-space:normal;min-width:280px}
+table.t tr:hover td{background:#F8FAFC}
+table.t tr.od td{background:#FFF5F5}
+a.ct{color:#0F172A;text-decoration:none;font-weight:600}a.ct:hover{color:#4F46E5}
+.meta{font-size:12px;color:#64748B;margin-top:2px}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #F8FAFC; color: #0F172A; font-family: Inter, system-ui, sans-serif; font-size: 14px">
+<header style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+<a href="01-cases.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A">
+<svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" style="flex: none"><rect width="32" height="32" rx="9" fill="#4F46E5"></rect><g transform="rotate(-14 16 16)"><path d="M7 11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.6a2.4 2.4 0 0 0 0 4.8V21a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2.6a2.4 2.4 0 0 0 0-4.8z" fill="#FFFFFF"></path><path d="M12.2 16.2l2.6 2.6 5-5.2" fill="none" stroke="#4F46E5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+<span style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em">Case Tracker</span>
+</a>
+<div style="display: flex; align-items: center; gap: 10px">
+<label for="agent" style="font-size: 13px; color: #64748B">Acting as</label>
+<span class="av av-a" aria-hidden="true">A</span>
+<select id="agent" class="chip" style="border-radius: 10px"><option selected>Amy</option><option>John</option><option>Sam</option></select>
+</div>
+</header>
+<main style="max-width: 1280px; margin: 0 auto; padding: 16px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+<div>
+<p style="margin: 0; color: #64748B; font-weight: 500">Thursday, Oct 22 · 2:30 PM</p>
+<h1 style="margin: 4px 0 0; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 40px">Cases</h1>
+</div>
+<a href="04-new-case.html" class="btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 3v10M3 8h10"></path></svg>New case</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
+<div class="kpi"><span class="ico" style="background: #EEF2FF"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#4F46E5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="2"></rect><path d="M3 9h4l1 2h4l1-2h4"></path></svg></span><div><div style="font-size: 13px; color: #64748B; font-weight: 500">Open</div><div style="font-size: 26px; font-weight: 700; line-height: 32px">8</div></div></div>
+<div class="kpi" style="border-color: #FECACA"><span class="ico" style="background: #FEE2E2"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M10 6v4.5M10 13.5h.01"></path></svg></span><div><div style="font-size: 13px; color: #B91C1C; font-weight: 500">Overdue</div><div style="font-size: 26px; font-weight: 700; line-height: 32px; color: #B91C1C">2</div></div></div>
+<div class="kpi"><span class="ico" style="background: #FEF3C7"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#B45309" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M8 7.5v5M12 7.5v5"></path></svg></span><div><div style="font-size: 13px; color: #64748B; font-weight: 500">Waiting on Customer</div><div style="font-size: 26px; font-weight: 700; line-height: 32px">2</div></div></div>
+<div class="kpi"><span class="ico" style="background: #D1FAE5"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#047857" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10.5l3 3 7-7"></path></svg></span><div><div style="font-size: 13px; color: #64748B; font-weight: 500">Resolved Today</div><div style="font-size: 26px; font-weight: 700; line-height: 32px">3</div></div></div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 16px; border-bottom: 1px solid #E2E8F0">
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<label for="f1" class="sr">Status</label>
+<select id="f1" class="chip"><option selected>Status: All open</option><option>New</option><option>In Progress</option><option>Waiting on Customer</option><option>Resolved</option><option>Closed</option></select>
+<label for="f2" class="sr">Priority</label>
+<select id="f2" class="chip"><option selected>Priority: All</option><option>High</option><option>Medium</option><option>Low</option></select>
+<label for="f3" class="sr">Category</label>
+<select id="f3" class="chip"><option selected>Category: All</option><option>D365 Sales</option><option>Customer Service</option><option>Power Automate</option><option>Integration</option></select>
+</div>
+<span style="font-size: 13px; color: #64748B">8 cases · sorted by due date</span>
+</div>
+<div style="overflow-x: auto">
+<table class="t">
+<thead><tr><th scope="col">Case</th><th scope="col">Category</th><th scope="col">Priority</th><th scope="col">Status</th><th scope="col">Assignee</th><th scope="col">Due</th></tr></thead>
+<tbody>
+<tr class="od"><td class="c"><a class="ct" href="02-case-detail.html">Sales orders stopped posting to ERP</a><div class="meta">#1047 · Prairie Valve &amp; Pump</div></td><td>Integration</td><td><span class="pr"><span class="pd" style="background: #DC2626"></span>High</span></td><td><span class="pill st-prog">In Progress</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-j" aria-hidden="true">J</span>John</span></td><td><div style="color: #B91C1C; font-weight: 600">Overdue 5h 15m</div><div class="meta">Today, 9:15 AM</div></td></tr>
+<tr class="od"><td class="c"><a class="ct" href="02-case-detail.html">Member renewal flow sends duplicate emails</a><div class="meta">#1044 · Great Lakes Planning Assn.</div></td><td>Power Automate</td><td><span class="pr"><span class="pd" style="background: #DC2626"></span>High</span></td><td><span class="pill st-new">New</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-a" aria-hidden="true">A</span>Amy</span></td><td><div style="color: #B91C1C; font-weight: 600">Overdue 2h 50m</div><div class="meta">Today, 11:40 AM</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Case routing rules skip the Tier 2 queue</a><div class="meta">#1049 · Harborview Mutual Insurance</div></td><td>Customer Service</td><td><span class="pr"><span class="pd" style="background: #DC2626"></span>High</span></td><td><span class="pill st-prog">In Progress</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-s" aria-hidden="true">S</span>Sam</span></td><td><div style="font-weight: 600">Today, 4:00 PM</div><div class="meta" style="color: #B45309">in 1h 30m</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Opportunity sync failing after field mapping change</a><div class="meta">#1042 · Lakeshore Community Foundation</div></td><td>D365 Sales</td><td><span class="pr"><span class="pd" style="background: #DC2626"></span>High</span></td><td><span class="pill st-wait">Waiting on Customer</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-a" aria-hidden="true">A</span>Amy</span></td><td><div>Tomorrow, 10:20 AM</div><div class="meta">in 19h 50m</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Quote PDF template missing company logo</a><div class="meta">#1051 · Midwest Fastener Co.</div></td><td>D365 Sales</td><td><span class="pr"><span class="pd" style="background: #D97706"></span>Medium</span></td><td><span class="pill st-new">New</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-j" aria-hidden="true">J</span>John</span></td><td><div>Sat, Oct 24, 1:05 PM</div><div class="meta">in 2 days</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Approval flow times out on large attachments</a><div class="meta">#1046 · Keystone Mechanical Contractors</div></td><td>Power Automate</td><td><span class="pr"><span class="pd" style="background: #D97706"></span>Medium</span></td><td><span class="pill st-prog">In Progress</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-s" aria-hidden="true">S</span>Sam</span></td><td><div>Sun, Oct 25, 9:00 AM</div><div class="meta">in 2 days</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Add “Preferred contact” field to case form</a><div class="meta">#1050 · Harborview Mutual Insurance</div></td><td>Customer Service</td><td><span class="pr"><span class="pd" style="background: #94A3B8"></span>Low</span></td><td><span class="pill st-new">New</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-a" aria-hidden="true">A</span>Amy</span></td><td><div>Tue, Oct 27, 12:30 PM</div><div class="meta">in 5 days</div></td></tr>
+<tr><td class="c"><a class="ct" href="02-case-detail.html">Nightly donor import shows encoding errors</a><div class="meta">#1043 · Lakeshore Community Foundation</div></td><td>Integration</td><td><span class="pr"><span class="pd" style="background: #94A3B8"></span>Low</span></td><td><span class="pill st-wait">Waiting on Customer</span></td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="av av-j" aria-hidden="true">J</span>John</span></td><td><div>Tue, Oct 27, 2:00 PM</div><div class="meta">in 5 days</div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>
