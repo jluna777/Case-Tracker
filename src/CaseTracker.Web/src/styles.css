@@ -503,3 +503,85 @@ main.detail-page { padding-top: 8px; gap: 20px; }
 .status-error-message { font-weight: 600; color: var(--danger-text); line-height: 20px; }
 .status-error-context { font-size: 13px; color: var(--text-2); line-height: 19px; }
 .status-error-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+
+/* ---- New case form ---- */
+
+main.form-page { max-width: 760px; padding-top: 8px; gap: 20px; }
+.form-intro { margin: 4px 0 0; }
+
+.case-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.form-label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--text-2); }
+.required { color: var(--danger); }
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  font: inherit;
+  color: var(--text);
+}
+textarea.input { padding: 12px 14px; line-height: 21px; resize: vertical; }
+.input[aria-invalid="true"] { border-color: var(--danger); }
+
+.field-error { margin-top: 6px; }
+
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+.priority-field { min-width: 0; margin: 0; padding: 0; border: 0; }
+.priority-field legend { padding: 0; }
+
+.segments { display: flex; gap: 8px; flex-wrap: wrap; }
+.segment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--text-2);
+  font-weight: 500;
+  cursor: pointer;
+}
+.segment input { margin: 0; accent-color: var(--accent); }
+.segment-on { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-ring); color: #3730A3; font-weight: 600; }
+
+.due-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  font-size: 13px;
+  color: var(--text-2);
+}
+.due-preview svg { flex: none; }
+.due-preview b { color: var(--text); }
+
+.assignee-field { max-width: 340px; }
+
+.form-error { margin: 0; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-subtle);
+}

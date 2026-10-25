@@ -57,6 +57,16 @@ export function formatOverdueBadge(dueAt: string, now: Date) {
   return `Overdue by ${formatDuration(now.getTime() - due.getTime())} · was due ${when}`
 }
 
+// "Fri, Oct 23 at 2:30 PM"
+export function formatPreviewDue(d: Date) {
+  return `${d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} at ${formatTime(d)}`
+}
+
+// "24 hours from now" / "3 days from now"
+export function formatHoursFromNow(hours: number) {
+  return hours > 24 && hours % 24 === 0 ? `${hours / 24} days from now` : `${hours} hours from now`
+}
+
 // "24h from creation (High)" / "3 days from creation (Medium)", read from the stored dates
 // so the frontend doesn't repeat the due-date rule.
 export function formatDueRule(createdAt: string, dueAt: string, priority: string) {

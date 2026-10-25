@@ -61,3 +61,14 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 
 // Mirrors ReferenceData.cs on the server; there's no lookup endpoint.
 export const AGENTS = ['Amy', 'John', 'Sam']
+export const CUSTOMERS = [
+  'Great Lakes Planning Assn.',
+  'Harborview Mutual Insurance',
+  'Keystone Mechanical Contractors',
+  'Lakeshore Community Foundation',
+  'Midwest Fastener Co.',
+  'Prairie Valve & Pump',
+]
+
+// Mirrors CaseStatusRules.CalculateDue, for the new-case preview only; the server sets the real due date.
+export const PRIORITY_HOURS: Record<Priority, number> = { High: 24, Medium: 72, Low: 120 }

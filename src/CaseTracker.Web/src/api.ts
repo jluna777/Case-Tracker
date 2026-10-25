@@ -1,11 +1,21 @@
-import type { CaseDetail, CaseNote, CaseStatus, CaseSummary, QueueSummary } from './types.ts'
+import type { CaseDetail, CaseNote, CaseStatus, CaseSummary, Category, Priority, QueueSummary } from './types.ts'
+
+// Carries ValidationProblem field errors (keyed by camelCase field name) so forms can show them inline.
+export class ApiError extends Error {
+  fieldErrors: Record<string, string[]>
+
+  constructor(message: string, fieldErrors: Record<string, string[]> = {}) {
+    super(message)
+    this.fieldErrors = fieldErrors
+  }
+}
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, init)
   if (!res.ok) {
     // Errors are ProblemDetails; the UI shows the detail text.
     const problem = await res.json().catch(() => null)
-    throw new Error(problem?.detail ?? problem?.title ?? `Request failed (${res.status}).`)
+    throw new ApiError(problem?.detail ?? problem?.title ?? `Request failed (${res.status}).`, problem?.errors)
   }
   return res.json()
 }
@@ -29,6 +39,20 @@ export function getSummary() {
 
 export function getCase(id: string) {
   return request<CaseDetail>(`/api/cases/${encodeURIComponent(id)}`)
+}
+
+export interface CreateCaseRequest {
+  title: string
+  customer: string | null
+  category: Category | null
+  priority: Priority
+  assignee: string | null
+  description: string | null
+  actor: string
+}
+
+export function createCase(req: CreateCaseRequest) {
+  return send<CaseDetail>('POST', '/api/cases', req)
 }
 
 export function changeStatus(id: number, status: CaseStatus, actor: string) {
