@@ -1,4 +1,4 @@
-import type { CaseSummary, QueueSummary } from './types.ts'
+import type { CaseDetail, CaseNote, CaseStatus, CaseSummary, QueueSummary } from './types.ts'
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, init)
@@ -10,6 +10,14 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
   return res.json()
 }
 
+function send<T>(method: string, url: string, body: unknown) {
+  return request<T>(url, {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+}
+
 export function getCases(query: URLSearchParams) {
   const qs = query.toString()
   return request<CaseSummary[]>(`/api/cases${qs ? `?${qs}` : ''}`)
@@ -17,4 +25,20 @@ export function getCases(query: URLSearchParams) {
 
 export function getSummary() {
   return request<QueueSummary>('/api/cases/summary')
+}
+
+export function getCase(id: string) {
+  return request<CaseDetail>(`/api/cases/${encodeURIComponent(id)}`)
+}
+
+export function changeStatus(id: number, status: CaseStatus, actor: string) {
+  return send<CaseDetail>('PATCH', `/api/cases/${id}/status`, { status, actor })
+}
+
+export function reopenCase(id: number, actor: string) {
+  return send<CaseDetail>('POST', `/api/cases/${id}/reopen`, { actor })
+}
+
+export function addNote(id: number, body: string, actor: string) {
+  return send<CaseNote>('POST', `/api/cases/${id}/notes`, { body, actor })
 }

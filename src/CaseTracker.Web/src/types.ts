@@ -15,6 +15,24 @@ export interface CaseSummary {
   isOverdue: boolean
 }
 
+export interface CaseNote {
+  id: number
+  kind: 'Agent' | 'System'
+  author: string | null
+  body: string
+  createdAt: string
+}
+
+export interface CaseDetail extends CaseSummary {
+  description: string | null
+  createdBy: string
+  resolvedAt: string | null
+  closedAt: string | null
+  allowedNextStatuses: CaseStatus[]
+  canReopen: boolean
+  notes: CaseNote[]
+}
+
 export interface QueueSummary {
   open: number
   overdue: number

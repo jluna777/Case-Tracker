@@ -22,8 +22,18 @@ function calendarDaysBetween(from: Date, to: Date) {
   return Math.round((startOfDay(to).getTime() - startOfDay(from).getTime()) / DAY)
 }
 
+// "Oct 21, 9:15 AM"
+export function formatDateTime(d: Date) {
+  return `${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${formatTime(d)}`
+}
+
+// "Wed, Oct 21, 9:15 AM"
+export function formatLongDateTime(d: Date) {
+  return `${d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}, ${formatTime(d)}`
+}
+
 // Under a day: "1h 30m" (or "30m"). A day or more: "2d 4h".
-function formatDuration(ms: number) {
+export function formatDuration(ms: number) {
   const totalMinutes = Math.max(0, Math.floor(ms / MINUTE))
   const days = Math.floor(totalMinutes / (24 * 60))
   const hours = Math.floor(totalMinutes / 60) % 24
@@ -37,8 +47,22 @@ function formatDay(due: Date, now: Date) {
   const time = formatTime(due)
   if (days === 0) return `Today, ${time}`
   if (days === 1) return `Tomorrow, ${time}`
-  if (days < 0) return `${due.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${time}`
-  return `${due.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}, ${time}`
+  return days < 0 ? formatDateTime(due) : formatLongDateTime(due)
+}
+
+// "Overdue by 5h 15m · was due today 9:15 AM"
+export function formatOverdueBadge(dueAt: string, now: Date) {
+  const due = new Date(dueAt)
+  const when = calendarDaysBetween(now, due) === 0 ? `today ${formatTime(due)}` : formatDateTime(due)
+  return `Overdue by ${formatDuration(now.getTime() - due.getTime())} · was due ${when}`
+}
+
+// "24h from creation (High)" / "3 days from creation (Medium)", read from the stored dates
+// so the frontend doesn't repeat the due-date rule.
+export function formatDueRule(createdAt: string, dueAt: string, priority: string) {
+  const hours = Math.round((new Date(dueAt).getTime() - new Date(createdAt).getTime()) / (60 * MINUTE))
+  const span = hours > 24 && hours % 24 === 0 ? `${hours / 24} days` : `${hours}h`
+  return `${span} from creation (${priority})`
 }
 
 export interface DueText {
