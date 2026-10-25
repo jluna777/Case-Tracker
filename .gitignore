@@ -21,3 +21,6 @@ src/CaseTracker.Api/wwwroot/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Playwright MCP snapshots
+.playwright-mcp/

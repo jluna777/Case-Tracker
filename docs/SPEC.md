@@ -28,7 +28,7 @@ CaseTracker/
 ├─ src/
 │  ├─ CaseTracker.Api/
 │  │  ├─ Program.cs
-│  │  ├─ Domain/        Case.cs, CaseNote.cs, Enums.cs, CaseStatusRules.cs
+│  │  ├─ Models/        Case.cs, CaseNote.cs, Enums.cs, CaseStatusRules.cs
 │  │  ├─ Data/          AppDbContext.cs, SeedData.cs
 │  │  ├─ Endpoints/     CaseEndpoints.cs       (static class, MapCaseEndpoints extension)
 │  │  ├─ Contracts/     Dtos.cs               (request/response records)
