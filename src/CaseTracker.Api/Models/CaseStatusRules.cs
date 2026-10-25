@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace CaseTracker.Api.Models;
 
 public static class CaseStatusRules
@@ -50,4 +52,17 @@ public static class CaseStatusRules
     // Waiting on Customer still counts: the clock keeps running while we wait.
     public static bool IsOverdue(CaseStatus status, DateTime dueAtUtc, DateTime nowUtc) =>
         OpenStatuses.Contains(status) && nowUtc > dueAtUtc;
+
+    // The due time is baked into stored text, so it uses server local time rather than each viewer's.
+    public static string CreatedNote(string actor, Priority priority, DateTime dueAtUtc, TimeZoneInfo localZone)
+    {
+        var dueLocal = TimeZoneInfo.ConvertTimeFromUtc(dueAtUtc, localZone);
+        return $"Case created by {actor} · priority {priority} · due {dueLocal.ToString("ddd, MMM d, h:mm tt", CultureInfo.InvariantCulture)}";
+    }
+
+    public static string StatusChangedNote(CaseStatus from, CaseStatus to, string actor) =>
+        $"Status changed from {from.Label()} to {to.Label()} by {actor}";
+
+    public static string ReopenedNote(CaseStatus from, string actor) =>
+        $"Case reopened by {actor} ({from.Label()} → {CaseStatus.InProgress.Label()})";
 }
